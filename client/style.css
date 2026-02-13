@@ -1,0 +1,291 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #808080;
+            --light-gray: #f5f5f5;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Lilita One', cursive;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            letter-spacing: 2px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--white);
+            color: var(--black);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-family: 'Changa One', sans-serif;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gray);
+        }
+
+        .status-dot.connected {
+            background: #00ff00;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        /* LED Control Section */
+        .control-section {
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .control-title {
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .control-subtitle {
+            font-family: 'Changa One', sans-serif;
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        /* Toggle Switch */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .toggle-label {
+            font-family: 'Changa One', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 120px;
+            height: 60px;
+            background: var(--gray);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 3px solid var(--white);
+        }
+
+        .toggle-switch.active {
+            background: var(--white);
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 46px;
+            height: 46px;
+            background: var(--white);
+            border-radius: 50%;
+            transition: transform 0.3s;
+            border: 3px solid var(--black);
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(60px);
+            background: var(--black);
+        }
+
+        /* Status Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--black);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 3px solid var(--white);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-family: 'Changa One', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-value {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        .card-unit {
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        /* Room Status */
+        .room-status {
+            background: var(--light-gray);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 3px solid var(--black);
+            margin-bottom: 2rem;
+        }
+
+        .room-status.occupied {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .room-icon {
+            font-size: clamp(4rem, 10vw, 6rem);
+            margin-bottom: 1rem;
+        }
+
+        .room-title {
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .room-subtitle {
+            font-family: 'Changa One', sans-serif;
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-box {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 3px solid var(--black);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-family: 'Changa One', sans-serif;
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .toggle-container {
+                flex-direction: column;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+.changa-one-regular {
+  font-family: "Changa One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.changa-one-regular-italic {
+  font-family: "Changa One", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}

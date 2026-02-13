@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Lilita+One&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+        
+    
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Classroom Presence Detection System</div>
+                <div class="status-badge">
+                    <div class="status-dot" id="statusDot"></div>
+                    <span id="statusText">Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- LED Control Section -->
+            <section class="control-section">
+                <h2 class="control-title">LED CONTROL</h2>
+                <p class="control-subtitle">Toggle your Arduino LED</p>
+                
+                <div class="toggle-container">
+                    <span class="toggle-label">OFF</span>
+                    <div class="toggle-switch" id="ledToggle">
+                        <div class="toggle-slider"></div>
+                    </div>
+                    <span class="toggle-label">ON</span>
+                </div>
+                
+                <p id="ledStatus" style="font-family: 'Changa One', sans-serif; margin-top: 1rem;">LED is OFF</p>
+            </section>
+
+            <!-- Room Status -->
+            <section class="room-status" id="roomStatus">
+                <div class="room-icon" id="roomIcon">🟢</div>
+                <h1 class="room-title" id="roomTitle">ROOM EMPTY</h1>
+                <p class="room-subtitle" id="roomSubtitle">No Activity</p>
+            </section>
+
+            <!-- Sensor Cards -->
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">📏</div>
+                    <div class="card-title">Distance</div>
+                    <div class="card-value">
+                        <span id="distance">--</span>
+                        <span class="card-unit">cm</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">👁️</div>
+                    <div class="card-title">Motion</div>
+                    <div class="card-value" id="motion">--</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <div class="card-title">Lights</div>
+                    <div class="card-value" id="lights">--</div>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-value" id="totalReadings">0</div>
+                    <div class="stat-label">Total Readings</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-value" id="uptime">0s</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-value" id="lastUpdate">--:--:--</div>
+                    <div class="stat-label">Last Update</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+
+    
+    
+</body>
+</html>
